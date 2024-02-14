@@ -1,0 +1,151 @@
+{% extends 'base/main.html' %}
+{% block title %}Profile Page{% endblock title %}
+{% block content %}
+
+<style>
+    h2 {
+        font-size: 2rem;
+        font-family: 'Azeret Mono', monospace;
+    }
+
+    form {
+        display: grid;
+        grid-template-columns: 72% 25%;
+        grid-gap: 3%;
+    }
+
+    .container {
+        width: 50%;
+        ;
+        margin: 5rem auto;
+        padding: 2.5rem;
+        border-radius: 10px;
+        background: linear-gradient(90deg, #e0c3fc 0%, #8ec5fc 100%);
+
+    }
+
+    input,
+    .btn {
+        padding: .5rem;
+        border-radius: 10px;
+        outline: none;
+        border: 1px solid white;
+    }
+
+    .btn {
+        padding: .5rem 1rem;
+        background-color: #E1E8EB;
+        color: #424874;
+        border: 2px solid #424874;
+        cursor: pointer;
+        transition: .3s;
+    }
+
+    .btn:hover {
+        transform: translateY(-3px);
+        background-color: #8c5fb2;
+        color: #fff;
+    }
+
+    .weather {
+        margin-top: 3rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 200px;
+        color: #424874;
+        text-align: center;
+    }
+
+    .left {
+        width: 100%;
+        background-color: #9bbfeb;
+        padding: .5rem;
+        border-radius: 10px 0 0 10px;
+
+        line-height: 3;
+    }
+
+    .right {
+        border-radius: 10px;
+        text-align: center;
+        width: 100%;
+        /*   margin-left:.5rem; */
+        line-height: 3;
+
+    }
+
+    .icon {
+        border: 1px solid #E1E8EB;
+        background: #E1E8EB;
+        height: 85px;
+        padding: .5rem;
+        border-radius: 0 10px 0 0;
+    }
+
+
+    .condition {
+        background: #b393d9;
+        padding: .5rem;
+        border-radius: 0 0 10px;
+        color: #F0EBCC;
+    }
+
+    @media only screen and (max-width: 1000px) {
+        .container {
+            width: 80%;
+        }
+    }
+
+    @media only screen and (max-width: 700px) {
+        .weather {
+            flex-direction: column;
+            height: auto;
+        }
+
+        .container {
+            text-align: center;
+            width: 90%;
+            height: 90%;
+        }
+
+        .right {
+            margin-top: .5rem;
+            margin-left: 0;
+        }
+
+        form {
+            grid-template-columns: 100%;
+
+        }
+
+
+    }
+</style>
+
+
+<form method="POST">
+    {% csrf_token %}
+    <input type="text" name="city" placeholder="Enter City">
+    <button type="submit" class="btn">Enter</button>
+</form>
+<div class="weather">
+    <div class="left">
+        <h2>{{temp}}&deg;</h2>
+        <h3>{{city}}</h3>
+    </div>
+    <div class="right">
+        <div class="icon">
+            <img src="http://openweathermap.org/img/w/{{icon}}.png" width="100px">
+        </div>
+        <div class="condition">
+            <b>
+                <p>Condition:</p>
+            </b>
+            <p>{{description}}</p>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

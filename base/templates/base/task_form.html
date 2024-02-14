@@ -1,0 +1,17 @@
+{% extends 'base/main.html' %}
+{% block content %}
+
+
+
+
+<div class="card-body">
+    <a class="delete" href="{% url 'tasks' %}"><h2>Go back</h2></a>
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button class="button" type="submit" value="Submit">Submit</button>
+    </form>
+</div>
+
+
+{% endblock content %}

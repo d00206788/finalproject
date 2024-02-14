@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Personal Management Page">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>To Do List</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@300;400&family=Nunito+Sans:opsz,wght@6..12,400;6..12,800&family=Pixelify+Sans&display=swap');
+
+        body {
+            background-color: #f4eeff;
+            font-family: 'Nunito Sans', sans-serif;
+            padding-top: 50px;
+            text-align: center;
+        }
+
+        input {
+            outline: none;
+            border: none;
+        }
+
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Azeret Mono', monospace;
+            font-weight: 1000;
+
+
+        }
+
+        a:hover {
+            color: #8c5fb2;
+        }
+
+        p {
+            text-align: center;
+            margin: 8px;
+        }
+
+        .container {
+            border-radius: 10px;
+            max-width: 550px;
+            height: 100%;
+            margin: auto;
+            background-color: #dcd6f7;
+            -webkit-box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
+            box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
+        }
+
+        .headerbar {
+            display: flex;
+            justify-content: space-between;
+            color: #424874;
+            padding: 20px;
+            border-radius: 5px 5px 0 0;
+            background: linear-gradient(90deg, #e0c3fc 0%, #8ec5fc 100%);
+        }
+
+        .header-bar a {
+            color: rgb(247, 247, 247);
+            text-decoration: none;
+        }
+
+        .task-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #fff;
+            border-top: 1px solid #dfe4ea;
+            overflow: hidden;
+            padding: 10px;
+        }
+
+        .task-title {
+            display: flex;
+            padding: 10px;
+        }
+
+        .task-title a {
+            text-decoration: none;
+            color: #4b5156;
+            margin-left: 10px;
+        }
+
+        .task-complete-icon {
+            height: 20px;
+            width: 20px;
+            background-color: rgb(105, 192, 105);
+            border-radius: 50%;
+        }
+
+        .task-incomplete-icon {
+            height: 20px;
+            width: 20px;
+            background-color: rgb(218, 218, 218);
+            border-radius: 50%;
+        }
+
+        .delete-link {
+            text-decoration: none;
+            font-weight: 900;
+            color: #cf4949;
+            font-size: 22px;
+            line-height: 0;
+            padding: 20px 0px;
+        }
+
+        #add-link {
+            color: #424874;
+            text-decoration: none;
+            font-size: 42px;
+            text-shadow: 1px 1px #424874;
+        }
+
+        #search-add-wrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        input[type=text],
+        input[type=password],
+        textarea {
+            border: 1px solid#424874;
+            border-radius: 5px;
+            padding: 10px;
+            width: 90%;
+        }
+
+        .login-input {
+            padding: 12px;
+            border-radius: 50px;
+            margin-bottom: 20px;
+            margin: auto;
+            font-size: 20px;
+            color: #fff;
+            background-color: #424874;
+            width: 50%;
+            justify-content: center;
+        }
+
+        input {
+            border-radius: 50px;
+            padding: 5px;
+        }
+
+
+
+        label {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .form-container {
+            width: 550px;
+            margin: auto;
+            padding: 50px;
+            background-color: #424874;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            color: #fff;
+        }
+
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        button {
+            padding: .5rem 1rem;
+            background-color: #E1E8EB;
+            border: 2px solid #424874;
+            cursor: pointer;
+            transition: .3s;
+            border-radius: 10px;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            background-color: #8c5fb2;
+            color: #fff;
+        }
+
+        .back-link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: large;
+            border-radius: 50px;
+        }
+
+        .container-navbar {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 5em;
+        }
+
+        nav {
+            background: #fff;
+            border-radius: 50px;
+            padding: 5px;
+            box-shadow: 0 25px 20px -20px rgba(0, 0, 0, 0.4);
+        }
+
+        nav a {
+            text-decoration: none;
+        }
+
+        nav ul li {
+            list-style: none;
+            display: inline-block;
+            padding: 15px 35px;
+            margin: 5px;
+            font-size: 18px;
+            font-weight: 500;
+            color: #777;
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
+            transition: color 0.5s;
+        }
+
+        nav ul li::after {
+            content: "";
+            background: plum;
+            width: 100%;
+            height: 100%;
+            border-radius: 30px;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            opacity: 0;
+            transition: top 0.5s, opacity 0.5s;
+        }
+
+        nav ul li:hover {
+            color: #fff;
+        }
+
+        nav ul li:hover::after {
+            top: 50%;
+            opacity: 1;
+        }
+
+        nav ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        .deletethis {
+            background-color: red;
+        }
+
+        .deletethiscontainer {
+            padding: 20px;
+            align-items: center;
+        }
+    </style>
+    </style>
+
+</head>
+
+<body>
+
+    {% block navbar %}
+    <div class="container-navbar">
+        <nav>
+            <ul>
+                <li><a href="{% url 'tasks' %}">Task list</a></li>
+                <li><a href="{% url 'profile' %}">Profile</a></li>
+                <li><a href="{% url 'weatherapp' %}">Weather</a></li>
+            </ul>
+        </nav>
+    </div>
+    {% endblock navbar %}
+    <div class="container">
+        {% block content %}
+
+        {% endblock content %}
+    </div>
+
+</body>
+
+
+</html>

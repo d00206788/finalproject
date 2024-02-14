@@ -1,0 +1,33 @@
+{% extends 'base/main.html' %}
+{% block title %}Profile Page{% endblock title %}
+{% block content %}
+
+
+<div class="headerbar">
+
+        <h1>Hello {{request.user|title}}</h1>
+        {% if request.user.is_authenticated %}
+        <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit">logout</button>
+        </form>
+        {% else %}
+        <a href="{% url 'login' %}">Login</a>
+        {% endif %}
+		</div>
+        <br>
+			<p><b>Username:</b> {{user.username}}</p>
+            <p><b>Last Login: </b>{{user.last_login}}</p>
+
+<br>
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}
