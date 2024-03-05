@@ -19,8 +19,9 @@
             background: #f4eeff !important;
         }
 
-        .user_card {
-            width: 350px;
+.user_card {
+            width: 100%; /* Adjusted to full width on smaller screens */
+            max-width: 350px; /* Maximum width to maintain readability */
             margin-top: auto;
             margin-bottom: auto;
             background: #dcd6f7;
@@ -36,12 +37,12 @@
 
         }
 
-                @media all and (min-width:569px) and (max-width: 768px) {
-            .user_card {
-    width: 100%;
+        /* Media Query for smaller screens */
+@media screen and (max-width: 768px) {
+    .user_card {
+        padding: 5px; /* Reduce padding on smaller screens */
+    }
 }
-
-        }
 
         .form_container {
             margin-top: 20px;
